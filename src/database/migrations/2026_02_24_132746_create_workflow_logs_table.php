@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('workflow_logs', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->uuid()->primary();
             $table->foreignUuid('workflow_id')->constraint('workflows')->cascadeOnDelete();
             $table->enum('status', ['success', 'failed', 'running']);
             $table->jsonb('payload');
